@@ -1,0 +1,29 @@
+<meta charset="UTF-8">
+<canvas width="600" height="400"></canvas>
+
+<script>
+	var canva = document.querySelector("canvas");
+	var	paint = canva.getContext("2d");
+	paint.fillStyle = "lightgray";
+	paint.fillRect(0, 0, 600, 400);
+	
+	function makecircle(x, y, raio, color)
+	{
+		paint.fillStyle = color;
+		paint.beginPath();
+		paint.arc(x, y, raio, 0, 2*Math.PI);
+		paint.fill();		
+	}
+
+	function	makeflower(x, y)
+	{
+		makecircle(x, y+20, 10, "blue");
+		makecircle(x, y, 10, "red");
+		makecircle(x, y-20, 10, "yellow");
+		makecircle(x-20, y, 10, "orange");
+		makecircle(x+20, y, 10, "green");
+	}
+
+	makeflower(300, 200);
+
+</script>

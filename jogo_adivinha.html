@@ -1,0 +1,24 @@
+<meta charset="UTF-8">
+<script>
+
+    function mostra(texto){
+        document.write(texto);
+        document.write("<br>");
+    }
+    n = parseInt(prompt("Escolha o valor máximo"));
+
+    function sorteio(n) {
+        return Math.round(Math.random() * n);
+    }
+
+    var chute = parseInt(prompt("Escolha um número: "))
+
+    var numero = sorteio(n)
+    if (chute == numero) {
+        mostra("Você acertou, o número pensado foi" + numero)
+    }
+    else {
+        mostra("Você errou! O número era " + numero);
+    }
+
+</script>

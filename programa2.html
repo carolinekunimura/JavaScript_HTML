@@ -1,0 +1,38 @@
+<meta charset="UTF-8">
+<canvas width="600" height="400"></canvas>
+
+<script>
+	var	selectcolor = 1;
+
+	function makesquare(x, y)
+	{
+		var canva = document.querySelector("canvas");
+		var paint = canva.getContext("2d");
+		if (selectcolor == 1)
+			paint.fillStyle = "green";
+		else if (selectcolor == 2)
+			paint.fillStyle = "red";
+		else if (selectcolor == 3)
+			paint.fillStyle = "blue";
+		paint.fillRect(x, y, 50, 50);
+		paint.strokeStyle = "black";
+		paint.strokeRect(x, y, 50, 50);
+
+	}
+	var x = 0;
+	var y = 0;
+	while (y < 400)
+	{
+		while (x < 600)
+		{
+			makesquare(x, y);
+			x = x + 50;
+		}
+		selectcolor++;
+		if (selectcolor == 4)
+			selectcolor = 1;
+		y = y + 50;
+		x = 0;
+	}
+
+</script>

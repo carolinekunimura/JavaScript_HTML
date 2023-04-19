@@ -1,0 +1,46 @@
+<meta charset="UTF-8">
+<input/>
+<button> "Descubra o número"</button>
+
+<script>
+	
+	function raffle () {
+		return Math.round(Math.random()* 10);
+	}
+	
+	function randomNumber(number) {
+		var count = 0;
+		for (count = 0; count < number; count++) {
+			hiddenNumber[count] = raffle();
+		}
+	}
+	
+	function checkNumber () {
+		var hiddenNumber = [];
+		var count = 0;
+		var	win = false
+		while (count < hiddenNumber.length){
+			if (win == false) {
+				if (input.value != hiddenNumber[count])
+					count++;
+			}
+			if (input.value == hiddenNumber[count]) {
+				alert("Great! You got it right!")
+				win = true;
+				break;
+			}
+		}
+		if (win == false){
+			alert("Sorry, you wrong!");
+			input.value = "";
+			input.focus();
+		}
+	}
+	document.querySelector("input");
+	document.querySelector("button");
+	input.value = ""
+	input.focus ();
+	randomNumber (5);
+	button.onclick = checkNumber;
+
+</script>

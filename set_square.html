@@ -1,0 +1,24 @@
+<meta charset="UTF-8">
+
+<canvas width="600" height="400"></canvas>
+
+<script>
+    var canva = document.querySelector("canvas");
+    var paint = canva.getContext("2d");
+
+    paint.fillStyle = "black";
+    paint.beginPath(50,50);
+    paint.moveTo(50, 400);
+    paint.lineTo(400, 400);
+    paint.lineTo(50,50);
+    paint.fill();
+
+    paint.fillStyle = "white";
+    paint.beginPath(100, 175);
+    paint.moveTo(100, 350);
+    paint.lineTo(275, 350);
+    paint.lineTo(100, 175);
+    paint.fill();
+
+
+</script>
