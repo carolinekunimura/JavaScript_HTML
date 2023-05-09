@@ -1,0 +1,32 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+    var canva = document.querySelector("canvas");
+    var paint = canva.getContext("2d");
+
+
+    function drawCircle (x, y, ray)
+    {
+        paint.fillStyle = "pink";
+        paint.beginPath();
+        paint.arc(x, y, ray, 0, 2 * Math.PI);
+        paint.fill();
+    }
+    
+    function clearCanva()
+    {
+        paint.clearRect(0, 0, 600, 400)
+    }
+    var ray = 20;
+
+    function pulse ()
+    {
+        clearCanva();
+        if (ray < 30)
+            ray++;
+        else if (ray > 20)
+            ray--;
+        drawCircle(300, 200, ray);
+    }
+    setInterval(pulse, 200);
+</script>

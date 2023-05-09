@@ -1,0 +1,34 @@
+<canvas width="600" height="400"></canvas>
+<br>
+Escolha uma cor <input type="color">
+<script>
+	var  palette = document.querySelector("input");
+	var canva = document.querySelector("canvas");
+	var paint = canva.getContext("2d");
+
+	paint.fillStyle = "grey";
+	paint.fillRect(0, 0, 600, 400);
+	var ray = 5;
+	var draw = false;
+
+	canva.onmousemove = function (event)
+	{
+		if (draw)
+		{
+			var x = event.pageX - canva.offsetLeft;
+			var y = event.pageY - canva.offsetTop;
+			paint.fillStyle = palette.value;
+			paint.beginPath();
+			paint.arc(x, y, ray, 0, 2 *3.14);
+			paint.fill();
+		}
+		console.log(x + ", " + y);
+	}
+
+	canva.onmousedown = function (){
+		draw = true;
+	}
+	canva.onmouseup = function (){
+		draw = false;
+	}
+</script>

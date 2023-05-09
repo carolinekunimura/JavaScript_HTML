@@ -1,0 +1,30 @@
+<canvas width="600" height="400"></canvas>
+<script>
+    var canva = document.querySelector('canvas');
+    var paint = canva.getContext("2d");
+    paint.fillStyle = "lightgrey";
+    paint.fillRect(0, 0, 600, 400);
+
+    function drawCircle(x, y, ray)
+    {
+        paint.fillStyle = "blue";
+        paint.beginPath();
+        paint.arc(x, y, ray, 0, 2 * Math.PI);
+        paint.fill();
+    }
+
+    function clearCanva()
+    {
+        paint.clearRect(0, 0, 600, 400);
+    }
+    var x = 10;
+
+    function refreshCanva()
+    {
+        clearCanva();
+        drawCircle(x, 200, 10);
+        x++;
+    }
+    setInterval(refreshCanva, 20);
+
+</script>

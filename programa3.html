@@ -1,0 +1,46 @@
+<canvas width="600" height="400"></canvas>
+<script>
+	var canva = document.querySelector("canvas");
+	var paint = canva.getContext("2d");
+
+	paint.fillStyle = "grey";
+	paint.fillRect(0, 0, 600, 400);
+	var colors = ["blue", "red", "green"];
+	var selectcolor = 0;
+	var ray = 10;
+
+	function drawCircle(event) 
+	{
+		var x = event.pageX - canva.offsetLeft;
+		var y = event.pageY - canva.offsetTop;
+		if (event.shiftKey)
+		{
+			if (ray < 40)
+				ray = ray + 10;			
+		}
+		if (event.ctrlKey)
+		{
+			if (ray > 10)
+				ray = ray - 5;
+		}
+		paint.fillStyle = colors[selectcolor];
+		paint.beginPath();		
+		paint.arc(x, y, ray, 0, 2 * 3.14);
+		paint.fill();
+		console.log(event);
+	}
+	
+	canva.onclick = drawCircle;
+	
+	function changeColor()
+	{
+		selectcolor++;
+		if (selectcolor >= colors.length)
+		{
+			selectcolor = 0;
+		};
+			alert(selectcolor);
+		return false;
+	}
+	canva.oncontextmenu = changeColor;
+</script>

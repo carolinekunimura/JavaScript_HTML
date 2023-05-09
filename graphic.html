@@ -1,0 +1,43 @@
+<meta charset="UTF-8">
+
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+    function draw_square(x, y, w, h, color)
+    {
+        var canva = document.querySelector("canvas");
+        var paint = canva.getContext("2d");
+
+        paint.fillStyle = color;
+        paint.fillRect(x, y, w, h);
+        paint.stroke = "black";
+        paint.strokeRect(x, y, w, h);
+    }
+    function draw_text(text, x, y)
+    {
+        var canva = document.querySelector("canvas");
+        var paint = canva.getContext("2d");
+
+        paint.font = "15px Georgia";
+        paint.fillStyle = "black";
+        paint.fillText(text, x, y);
+    }
+
+    function draw_graphic(x, y, season, color, text)
+    {
+        draw_text(x, y - 10, text);
+
+        var sumH = 0;
+        for (i = 0; i < season.length; i++);
+            var h = season[i];
+            draw_square(x, y, sumH, 50, h, color[i]);
+            sumH = sumH + h;
+    }
+    var season2015 = [50, 25, 20, 5];
+    var season2016 = [65, 20, 13, 2];
+    var color = ["blue", "green", "yellow", "red"];
+
+    draw_graphic(50, 50, season2015, color, "2015");
+    draw_graphic(150, 50, season2016, color, "2016");
+</script>
